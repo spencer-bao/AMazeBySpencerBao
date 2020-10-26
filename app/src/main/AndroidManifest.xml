@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.GeneratingActivity"></activity>
     </application>
 
 </manifest>

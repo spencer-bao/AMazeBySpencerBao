@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AMazeBySpencerBao</string>
+    <string name="wizard">Wizard</string>
+    <string name="manual_driver">Manual Driver</string>
+    <string name="wall_follower">Wall Follower</string>
+    <string name="revisit">Revisit</string>
+    <string name="explore">Explore</string>
+    <string name="energy_consumption">Energy Consumption</string>
+    <string name="skill_level">Skill Level</string>
 </resources>
