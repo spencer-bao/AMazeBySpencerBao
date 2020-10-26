@@ -6,6 +6,20 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="132dp"
+        android:text="Go2Losing"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
         android:id="@+id/zoomInButton2"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
@@ -107,5 +121,19 @@
         android:text="Fast"
         app:layout_constraintEnd_toEndOf="@+id/seekBar"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="10dp"
+        android:text="Go2Winning"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/zoomOutButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visibleSwitch2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

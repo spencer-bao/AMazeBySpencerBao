@@ -102,7 +102,7 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:text="Zoom In"
+        android:text="@string/zoom_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/solutionSwitch" />
 
@@ -110,7 +110,7 @@
         android:id="@+id/zoomOutButton"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:text="Zoom Out"
+        android:text="@string/zoom_out"
         app:layout_constraintEnd_toEndOf="@+id/zoomInButton"
         app:layout_constraintStart_toStartOf="@+id/zoomInButton"
         app:layout_constraintTop_toBottomOf="@+id/zoomInButton" />

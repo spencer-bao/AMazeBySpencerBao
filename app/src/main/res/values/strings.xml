@@ -20,4 +20,11 @@
     <string name="remaining_energy">Remaining Energy</string>
     <string name="zoom_in">Zoom In</string>
     <string name="zoom_out">Zoom Out</string>
+    <string name="victory">VICTORY</string>
+    <string name="length_of_shortest_path_1000">Length of Shortest Path: 1000</string>
+    <string name="overall_energy_consumption_500">Overall Energy Consumption: 500</string>
+    <string name="length_of_path_taken_4000">Length of Path Taken: 4000</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="defeat">DEFEAT</string>
 </resources>
