@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.GeneratingActivity"></activity>
+        <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.PlayManuallyActivity"></activity>
+        <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.PlayAnimationActivity"></activity>
     </application>
 
 </manifest>

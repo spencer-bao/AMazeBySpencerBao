@@ -10,7 +10,9 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/skillLevel"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintBottom_toTopOf="@+id/revisitButton"
+        app:layout_constraintEnd_toStartOf="@+id/roomSpinner"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skillBar" />
 
@@ -30,16 +35,21 @@
         android:layout_marginEnd="50dp"
         app:layout_constraintBottom_toTopOf="@+id/exploreButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mazeSelectSpinner"
         app:layout_constraintTop_toBottomOf="@+id/skillBar" />
 
     <Button
         android:id="@+id/revisitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="150dp"
         android:text="@string/revisit"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/exploreButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -50,15 +60,19 @@
         android:layout_marginBottom="150dp"
         android:text="@string/explore"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/revisitButton" />
 
     <TextView
         android:id="@+id/skillLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/skill_level"
+        android:text="@string/skill_level_0"
+        app:layout_constraintBottom_toTopOf="@+id/mazeSelectSpinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skillBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,32 +8,111 @@
     <Button
         android:id="@+id/rightButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Right"
-        tools:layout_editor_absoluteX="249dp"
-        tools:layout_editor_absoluteY="503dp" />
+        android:layout_height="150dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/downButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/leftButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Left"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="503dp" />
-
-    <Button
-        android:id="@+id/upButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Up"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="455dp" />
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/downButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/downButton"
         android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="@string/down"
+        app:layout_constraintBottom_toBottomOf="@+id/leftButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/upButton"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/up"
+        app:layout_constraintBottom_toTopOf="@+id/downButton"
+        app:layout_constraintEnd_toEndOf="@+id/downButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/downButton"
+        app:layout_constraintTop_toTopOf="@+id/leftButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Down"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="551dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="350dp" />
+
+    <Switch
+        android:id="@+id/mapSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/show_map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/solutionSwitch" />
+
+    <Switch
+        android:id="@+id/solutionSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/show_solution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toEndOf="@+id/mapSwitch"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/visibleSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/visible_walls"
+        app:layout_constraintEnd_toEndOf="@+id/mapSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/mapSwitch" />
+
+    <Button
+        android:id="@+id/shortcutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shortcut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/solutionSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/solutionSwitch" />
+
+    <Button
+        android:id="@+id/zoomInButton"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="Zoom In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solutionSwitch" />
+
+    <Button
+        android:id="@+id/zoomOutButton"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Zoom Out"
+        app:layout_constraintEnd_toEndOf="@+id/zoomInButton"
+        app:layout_constraintStart_toStartOf="@+id/zoomInButton"
+        app:layout_constraintTop_toBottomOf="@+id/zoomInButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
