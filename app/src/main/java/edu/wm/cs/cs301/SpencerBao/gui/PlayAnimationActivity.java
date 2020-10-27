@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +26,6 @@ public class PlayAnimationActivity extends AppCompatActivity {
                 } else {
                     playPauseButton.setText("Pause");
                 }
-
             }
         });
 
@@ -46,5 +46,35 @@ public class PlayAnimationActivity extends AppCompatActivity {
                 startActivity(next);
             }
         });
+
+        Intent intent = getIntent();
+        String robotConfig = intent.getStringExtra("Robot Config");
+        ImageView image;
+        switch (robotConfig){
+            case "1111":
+                break;
+            case "1001":
+                image = (ImageView) findViewById(R.id.sensorL);
+                image.setImageResource(android.R.drawable.presence_busy);
+                image = (ImageView) findViewById(R.id.sensorR);
+                image.setImageResource(android.R.drawable.presence_busy);
+                break;
+            case "0110":
+                image = (ImageView) findViewById(R.id.sensorF);
+                image.setImageResource(android.R.drawable.presence_busy);
+                image = (ImageView) findViewById(R.id.sensorB);
+                image.setImageResource(android.R.drawable.presence_busy);
+                break;
+            case "0000":
+                image = (ImageView) findViewById(R.id.sensorF);
+                image.setImageResource(android.R.drawable.presence_busy);
+                image = (ImageView) findViewById(R.id.sensorL);
+                image.setImageResource(android.R.drawable.presence_busy);
+                image = (ImageView) findViewById(R.id.sensorR);
+                image.setImageResource(android.R.drawable.presence_busy);
+                image = (ImageView) findViewById(R.id.sensorB);
+                image.setImageResource(android.R.drawable.presence_busy);
+                break;
+        }
     }
 }

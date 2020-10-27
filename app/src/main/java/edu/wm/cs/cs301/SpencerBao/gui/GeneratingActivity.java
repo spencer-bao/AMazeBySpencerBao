@@ -34,7 +34,7 @@ public class GeneratingActivity extends AppCompatActivity {
         driverSelectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // robotConfig spinner
-        List<String> robotConfig = new ArrayList<String>();
+        final List<String> robotConfig = new ArrayList<String>();
         robotConfig.add("[Robot Config]");
         robotConfig.add("Premium");
         robotConfig.add("Mediocre");
@@ -57,17 +57,36 @@ public class GeneratingActivity extends AppCompatActivity {
                         progressBar.incrementProgressBy(10);
                     }
                     Log.d("tag", String.valueOf(progressBar.getProgress()));
-                    while (progressBar.getProgress() != 100 || driverSelectSpinner.getSelectedItem() == "[Select Driver]"
-                            || robotConfigSpinner.getSelectedItem() == "[Maze Config]"){
+                    while (progressBar.getProgress() != 100 ||
+                            driverSelectSpinner.getSelectedItem().toString() == "[Select Driver]" ||
+                            robotConfigSpinner.getSelectedItem().toString() == "[Robot Config]"){
 
                     }
-                    if (driverSelectSpinner.getSelectedItem() == "Manual Driver"){
-                        Intent next = new Intent(getApplicationContext(), PlayManuallyActivity.class);
-                        startActivity(next);
+
+                    Intent next;
+                    if (driverSelectSpinner.getSelectedItem().toString() == "Manual"){
+                        next = new Intent(getApplicationContext(), PlayManuallyActivity.class);
                     } else{
-                        Intent next = new Intent(getApplicationContext(), PlayAnimationActivity.class);
-                        startActivity(next);
+                        next = new Intent(getApplicationContext(), PlayAnimationActivity.class);
                     }
+                    next.putExtra("Driver", driverSelectSpinner.getSelectedItem().toString());
+
+                    switch (robotConfigSpinner.getSelectedItem().toString()){
+                        case "Premium":
+                            next.putExtra("Robot Config", "1111");
+                            break;
+                        case "Mediocre":
+                            next.putExtra("Robot Config", "1001");
+                            break;
+                        case "So-so":
+                            next.putExtra("Robot Config", "0110");
+                            break;
+                        case "Shaky":
+                            next.putExtra("Robot Config", "0000");
+                            break;
+                    }
+                    startActivity(next);
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
