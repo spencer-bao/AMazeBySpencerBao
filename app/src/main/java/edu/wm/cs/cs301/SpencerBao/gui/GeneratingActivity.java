@@ -61,8 +61,14 @@ public class GeneratingActivity extends AppCompatActivity {
                             || robotConfigSpinner.getSelectedItem() == "[Maze Config]"){
 
                     }
-                    Intent next = new Intent(getApplicationContext(), PlayManuallyActivity.class);
-                    startActivity(next);
+                    if (driverSelectSpinner.getSelectedItem() == "Manual Driver"){
+                        Intent next = new Intent(getApplicationContext(), PlayManuallyActivity.class);
+                        startActivity(next);
+                    } else{
+                        Intent next = new Intent(getApplicationContext(), PlayAnimationActivity.class);
+                        startActivity(next);
+                    }
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

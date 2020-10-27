@@ -53,16 +53,16 @@ public class AMazeActivity extends AppCompatActivity {
         mazeAlgorithms.add("Prim");
         mazeAlgorithms.add("Eller");
 
-        Spinner mazeSelectSpinner = (Spinner) findViewById(R.id.mazeSelectSpinner);
+        final Spinner mazeSelectSpinner = (Spinner) findViewById(R.id.mazeSelectSpinner);
         ArrayAdapter<String> mazeSelectAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, mazeAlgorithms);
         mazeSelectSpinner.setAdapter(mazeSelectAdapter);
         mazeSelectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        List<String> roomsNoRooms = new ArrayList<String>();
+        final List<String> roomsNoRooms = new ArrayList<String>();
         roomsNoRooms.add("Rooms");
         roomsNoRooms.add("No Rooms");
 
-        Spinner roomSpinner = (Spinner) findViewById(R.id.roomSpinner);
+        final Spinner roomSpinner = (Spinner) findViewById(R.id.roomSpinner);
         ArrayAdapter<String> roomAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, roomsNoRooms);
         roomSpinner.setAdapter(roomAdapter);
         roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,6 +72,7 @@ public class AMazeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(), GeneratingActivity.class);
+                next.putExtra("Skill Level", skillBar.getProgress());
                 startActivity(next);
             }
         });
@@ -81,6 +82,9 @@ public class AMazeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(), GeneratingActivity.class);
+                next.putExtra("Skill Level", skillBar.getProgress());
+                next.putExtra("Maze Algorithm", mazeSelectSpinner.getSelectedItem().toString());
+                next.putExtra("Rooms", roomSpinner.getSelectedItem().toString());
                 startActivity(next);
             }
         });

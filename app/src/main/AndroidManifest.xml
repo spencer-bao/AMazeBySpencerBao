@@ -20,6 +20,8 @@
         <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.GeneratingActivity"></activity>
         <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.PlayManuallyActivity"></activity>
         <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.PlayAnimationActivity"></activity>
+        <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.WinningActivity"></activity>
+        <activity android:name="edu.wm.cs.cs301.SpencerBao.gui.LosingActivity"></activity>
     </application>
 
 </manifest>

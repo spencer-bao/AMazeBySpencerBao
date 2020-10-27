@@ -6,39 +6,38 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/go2LosingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="177dp"
-        android:layout_marginBottom="132dp"
-        android:text="Go2Losing"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        android:layout_marginBottom="84dp"
+        android:text="@string/go2losing"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/go2WinningButton" />
 
     <Button
-        android:id="@+id/zoomInButton2"
+        android:id="@+id/animatZoomInButton"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:text="@string/zoom_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/visibleSwitch2" />
+        app:layout_constraintTop_toTopOf="@+id/animatVisibleSwitch" />
 
     <Button
-        android:id="@+id/zoomOutButton2"
+        android:id="@+id/animatZoomOutButton"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:text="@string/zoom_out"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/zoomInButton2"
-        app:layout_constraintTop_toBottomOf="@+id/zoomInButton2"
+        app:layout_constraintStart_toStartOf="@+id/animatZoomInButton"
+        app:layout_constraintTop_toBottomOf="@+id/animatZoomInButton"
         app:layout_constraintVertical_bias="0.0" />
 
     <Switch
-        android:id="@+id/mapSwitch2"
+        android:id="@+id/animateMapSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/show_map"
@@ -46,18 +45,18 @@
         app:layout_constraintTop_toBottomOf="@+id/energyConsumption" />
 
     <Switch
-        android:id="@+id/visibleSwitch2"
+        android:id="@+id/animatVisibleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/visible_walls"
-        app:layout_constraintStart_toEndOf="@+id/mapSwitch2"
+        app:layout_constraintStart_toEndOf="@+id/animateMapSwitch"
         app:layout_constraintTop_toBottomOf="@+id/energyConsumption" />
 
     <ProgressBar
         android:id="@+id/energyConsumption"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="364dp"
+        android:layout_width="300dp"
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,8 +71,8 @@
         android:text="@string/remaining_energy"
         app:layout_constraintBottom_toTopOf="@+id/energyConsumption"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/energyConsumption"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -82,58 +81,128 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="350dp" />
+        app:layout_constraintGuide_begin="300dp" />
 
     <Button
         android:id="@+id/playPauseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="188dp"
-        android:text="Pause"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/animatSpeed" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/animatSpeed"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/slow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slow"
-        app:layout_constraintStart_toStartOf="@+id/seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        android:text="@string/slow"
+        app:layout_constraintStart_toStartOf="@+id/animatSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/animatSpeed" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/fast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fast"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        android:text="@string/fast"
+        app:layout_constraintEnd_toEndOf="@+id/animatSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/animatSpeed" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/go2WinningButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="10dp"
-        android:text="Go2Winning"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/zoomOutButton2"
+        android:text="@string/go2winning"
+        app:layout_constraintBottom_toTopOf="@+id/go2LosingButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/sensorF"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="@string/forward_sensor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visibleSwitch2" />
+        app:srcCompat="@android:drawable/presence_online" />
+
+    <ImageView
+        android:id="@+id/sensorL"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:contentDescription="@string/left_sensor"
+        app:layout_constraintBottom_toBottomOf="@+id/sensorF"
+        app:layout_constraintStart_toEndOf="@+id/sensorF"
+        app:srcCompat="@android:drawable/presence_online" />
+
+    <ImageView
+        android:id="@+id/sensorR"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="35dp"
+        android:contentDescription="@string/right_sensor"
+        app:layout_constraintBottom_toBottomOf="@+id/sensorB"
+        app:layout_constraintEnd_toStartOf="@+id/sensorB"
+        app:srcCompat="@android:drawable/presence_online" />
+
+    <ImageView
+        android:id="@+id/sensorB"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="@string/back_sensor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/presence_online" />
+
+    <TextView
+        android:id="@+id/F"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        app:layout_constraintBottom_toTopOf="@+id/sensorF"
+        app:layout_constraintEnd_toEndOf="@+id/sensorF"
+        app:layout_constraintStart_toStartOf="@+id/sensorF" />
+
+    <TextView
+        android:id="@+id/L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="L"
+        app:layout_constraintBottom_toTopOf="@+id/sensorL"
+        app:layout_constraintEnd_toEndOf="@+id/sensorL"
+        app:layout_constraintStart_toStartOf="@+id/sensorL" />
+
+    <TextView
+        android:id="@+id/R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R"
+        app:layout_constraintBottom_toTopOf="@+id/sensorR"
+        app:layout_constraintEnd_toEndOf="@+id/sensorR"
+        app:layout_constraintStart_toStartOf="@+id/sensorR" />
+
+    <TextView
+        android:id="@+id/B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B"
+        app:layout_constraintBottom_toTopOf="@+id/sensorB"
+        app:layout_constraintEnd_toEndOf="@+id/sensorB"
+        app:layout_constraintStart_toStartOf="@+id/sensorB" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
