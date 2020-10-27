@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.amazebyspencerbao.R;
@@ -15,6 +16,16 @@ import com.example.amazebyspencerbao.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Responsibilities: Displays an intermediate page where the user can select the driver and robot
+ * settings while a maze is generated with a background thread. The page informs the user on the
+ * progress that is made on the preparation of a maze. The design idea is to keep the user engaged
+ * while the game computes the maze to reduce the perceived wait time.
+ * <p></p>
+ * Classes: AMazeActivity, PlayManuallyActivity, PlayAnimationActivity
+ * <p></p>
+ * @Author Spencer Bao
+ */
 public class GeneratingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +57,11 @@ public class GeneratingActivity extends AppCompatActivity {
         robotConfigSpinner.setAdapter(robotConfigAdapter);
         robotConfigAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // progressBar
+        /**
+         * Runs a thread that increments the loading bar with some pause in between. When the loading
+         * bar is at 100 and the driver and robot configs are selected from their spinners,
+         * then the generating screen can continue.
+         */
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         new Thread(new Runnable() {
             @Override
@@ -60,7 +75,6 @@ public class GeneratingActivity extends AppCompatActivity {
                     while (progressBar.getProgress() != 100 ||
                             driverSelectSpinner.getSelectedItem().toString() == "[Select Driver]" ||
                             robotConfigSpinner.getSelectedItem().toString() == "[Robot Config]"){
-
                     }
 
                     Intent next;
@@ -86,15 +100,16 @@ public class GeneratingActivity extends AppCompatActivity {
                             break;
                     }
                     startActivity(next);
-
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
-
-
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent back2Title = new Intent(getApplicationContext(), AMazeActivity.class);
+        startActivity(back2Title);
+    };
 }

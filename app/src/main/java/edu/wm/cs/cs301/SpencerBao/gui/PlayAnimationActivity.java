@@ -10,6 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.amazebyspencerbao.R;
 
+/**
+ * Responsibilities: Displays the maze and lets the user watch a robot explore the maze. Displays
+ * remaining energy. Options to toggle the map and to scale the size of the map. Has a start/pause
+ * button.
+ * <p></p>
+ * Classes: GeneratingActivity, WinningActivity, LosingActivity
+ * <p></p>
+ * @Author Spencer Bao
+ */
 public class PlayAnimationActivity extends AppCompatActivity {
 
     @Override
@@ -17,6 +26,9 @@ public class PlayAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_animation);
 
+        /**
+         * Button plays and stops the automatic robot driver.
+         */
         final Button playPauseButton = (Button) findViewById(R.id.playPauseButton);
         playPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +41,9 @@ public class PlayAnimationActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Placeholders for the animation, sends user directly to victory and defeat screens.
+         */
         Button go2WinningButton = (Button) findViewById(R.id.go2WinningButton);
         go2WinningButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +62,10 @@ public class PlayAnimationActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Get the robot config from GeneratingActivity and changes the sensor accordingly (Reliable,
+         * Unreliable).
+         */
         Intent intent = getIntent();
         String robotConfig = intent.getStringExtra("Robot Config");
         ImageView image;
@@ -77,4 +96,10 @@ public class PlayAnimationActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent back2Title = new Intent(getApplicationContext(), AMazeActivity.class);
+        startActivity(back2Title);
+    };
 }

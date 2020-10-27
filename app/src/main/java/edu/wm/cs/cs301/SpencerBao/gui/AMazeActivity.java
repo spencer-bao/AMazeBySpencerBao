@@ -19,14 +19,28 @@ import com.example.amazebyspencerbao.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Responsibilities: Displays the welcome page and takes parameter settings to start with the maze
+ * generation. Options to choose skill level of maze, select generating algorithm, select to have
+ * rooms or not. A Revisit button to recompute an old maze that matches with the skill level in
+ * GeneratingActivity. A Explore button that uses all the information to create a new maze.
+ * <p></p>
+ * Classes: Generating Activity, LosingActivity, WinningActivity, PlayAnimationActivity,
+ * PlayManuallyActivity
+ * <p></p>
+ * @Author Spencer Bao
+ */
+
 public class AMazeActivity extends AppCompatActivity {
-//    SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.state_title);
 
+        /**
+         * Seekbar used to choose the skill level of the maze. Min of 0 and max of 9.
+         */
         final SeekBar skillBar = (SeekBar) findViewById(R.id.skillBar);
         skillBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -47,7 +61,13 @@ public class AMazeActivity extends AppCompatActivity {
             }
         });
 
-        // referenced from Anupam Chugh at JournalDev.com
+        /**
+         * Two spinners that selects the maze algorithm and to have or not have rooms.
+         *
+         * referenced from Anupam Chugh at JournalDev.com
+         * altered by Spencer Bao
+         */
+
         List<String> mazeAlgorithms = new ArrayList<String>();
         mazeAlgorithms.add("DFS");
         mazeAlgorithms.add("Prim");
@@ -90,19 +110,19 @@ public class AMazeActivity extends AppCompatActivity {
         });
 
     }
-//    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
-
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-
-    }
-
-    public void onNothingSelected(AdapterView<?> arg0) {
-
-    }
+////    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        // On selecting a spinner item
+//        String item = parent.getItemAtPosition(position).toString();
+//
+//        // Showing selected spinner item
+//        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+//
+//    }
+//
+//    public void onNothingSelected(AdapterView<?> arg0) {
+//
+//    }
 
 
 

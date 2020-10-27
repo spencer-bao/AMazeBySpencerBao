@@ -9,8 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.amazebyspencerbao.R;
 
+/**
+ * Responsibilities: Displays the maze and lets the user manually navigate through the maze. Options
+ * to toggle the map, toggle visible walls, and to scale the size of the map. Has up, down, left,
+ * right buttons.
+ * <p></p>
+ * Classes: GeneratingActivity, WinningActivity, LosingActivity
+ * <p></p>
+ * @Author Spencer Bao
+ */
 public class PlayManuallyActivity extends AppCompatActivity {
-//    SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,4 +34,10 @@ public class PlayManuallyActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent back2Title = new Intent(getApplicationContext(), AMazeActivity.class);
+        startActivity(back2Title);
+    };
 }
