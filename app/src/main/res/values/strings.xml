@@ -36,4 +36,8 @@
     <string name="left_sensor">Left Sensor</string>
     <string name="right_sensor">Right sensor</string>
     <string name="back_sensor">Back Sensor</string>
+    <string name="f">F</string>
+    <string name="l">L</string>
+    <string name="r">R</string>
+    <string name="b">B</string>
 </resources>

@@ -173,7 +173,7 @@
         android:id="@+id/F"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="F"
+        android:text="@string/f"
         app:layout_constraintBottom_toTopOf="@+id/sensorF"
         app:layout_constraintEnd_toEndOf="@+id/sensorF"
         app:layout_constraintStart_toStartOf="@+id/sensorF" />
@@ -182,7 +182,7 @@
         android:id="@+id/L"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="L"
+        android:text="@string/l"
         app:layout_constraintBottom_toTopOf="@+id/sensorL"
         app:layout_constraintEnd_toEndOf="@+id/sensorL"
         app:layout_constraintStart_toStartOf="@+id/sensorL" />
@@ -191,7 +191,7 @@
         android:id="@+id/R"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="R"
+        android:text="@string/r"
         app:layout_constraintBottom_toTopOf="@+id/sensorR"
         app:layout_constraintEnd_toEndOf="@+id/sensorR"
         app:layout_constraintStart_toStartOf="@+id/sensorR" />
@@ -200,7 +200,7 @@
         android:id="@+id/B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B"
+        android:text="@string/b"
         app:layout_constraintBottom_toTopOf="@+id/sensorB"
         app:layout_constraintEnd_toEndOf="@+id/sensorB"
         app:layout_constraintStart_toStartOf="@+id/sensorB" />
