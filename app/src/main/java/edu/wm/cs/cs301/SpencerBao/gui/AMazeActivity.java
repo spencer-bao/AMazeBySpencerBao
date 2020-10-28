@@ -3,6 +3,7 @@ package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,7 +58,8 @@ public class AMazeActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                Toast.makeText(getApplicationContext(), "Changed Skill Level",Toast.LENGTH_SHORT).show();
+                Log.v("Skill Bar Progress toast", "Changed Skill Level");
             }
         });
 
@@ -77,15 +79,42 @@ public class AMazeActivity extends AppCompatActivity {
         ArrayAdapter<String> mazeSelectAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, mazeAlgorithms);
         mazeSelectSpinner.setAdapter(mazeSelectAdapter);
         mazeSelectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mazeSelectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected: " +
+                        mazeSelectSpinner.getSelectedItem().toString() ,Toast.LENGTH_SHORT).show();
+                Log.v("Maze Select toast", "Selected" + mazeSelectSpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         final List<String> roomsNoRooms = new ArrayList<String>();
         roomsNoRooms.add("Rooms");
         roomsNoRooms.add("No Rooms");
 
         final Spinner roomSpinner = (Spinner) findViewById(R.id.roomSpinner);
-        ArrayAdapter<String> roomAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, roomsNoRooms);
+        ArrayAdapter<String> roomAdapter = new ArrayAdapter <String>(this,
+                android.R.layout.simple_spinner_item, roomsNoRooms);
         roomSpinner.setAdapter(roomAdapter);
         roomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        roomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected: " +
+                        roomSpinner.getSelectedItem().toString() ,Toast.LENGTH_SHORT).show();
+                Log.v("RoomOrNoRooms toast", "Selected" + roomSpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         Button revisitButton = (Button) findViewById(R.id.revisitButton);
         revisitButton.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +122,8 @@ public class AMazeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(), GeneratingActivity.class);
                 next.putExtra("Skill Level", skillBar.getProgress());
+                Toast.makeText(getApplicationContext(), "Pressed Revisit", Toast.LENGTH_SHORT).show();
+                Log.v("Revisit toast", "Pressed Revisit");
                 startActivity(next);
             }
         });
@@ -105,25 +136,11 @@ public class AMazeActivity extends AppCompatActivity {
                 next.putExtra("Skill Level", skillBar.getProgress());
                 next.putExtra("Maze Algorithm", mazeSelectSpinner.getSelectedItem().toString());
                 next.putExtra("Rooms", roomSpinner.getSelectedItem().toString());
+                Toast.makeText(getApplicationContext(), "Pressed Explore", Toast.LENGTH_SHORT).show();
+                Log.v("Explore toast", "Pressed Explore");
                 startActivity(next);
             }
         });
 
     }
-////    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        // On selecting a spinner item
-//        String item = parent.getItemAtPosition(position).toString();
-//
-//        // Showing selected spinner item
-//        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-//
-//    }
-//
-//    public void onNothingSelected(AdapterView<?> arg0) {
-//
-//    }
-
-
-
 }

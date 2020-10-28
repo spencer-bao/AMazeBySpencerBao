@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +45,19 @@ public class GeneratingActivity extends AppCompatActivity {
         ArrayAdapter<String> driverSelectAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, driverSelect);
         driverSelectSpinner.setAdapter(driverSelectAdapter);
         driverSelectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        driverSelectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected: " +
+                        driverSelectSpinner.getSelectedItem().toString() ,Toast.LENGTH_SHORT).show();
+                Log.v("Driver Select toast", "Selected" + driverSelectSpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // robotConfig spinner
         final List<String> robotConfig = new ArrayList<String>();
@@ -56,6 +71,19 @@ public class GeneratingActivity extends AppCompatActivity {
         ArrayAdapter<String> robotConfigAdapter = new ArrayAdapter <String>(this, android.R.layout.simple_spinner_item, robotConfig);
         robotConfigSpinner.setAdapter(robotConfigAdapter);
         robotConfigAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        robotConfigSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected: " +
+                        robotConfigSpinner.getSelectedItem().toString() ,Toast.LENGTH_SHORT).show();
+                Log.v("Robot Config toast", "Selected" + robotConfigSpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         /**
          * Runs a thread that increments the loading bar with some pause in between. When the loading
@@ -71,7 +99,7 @@ public class GeneratingActivity extends AppCompatActivity {
                         Thread.sleep(500);
                         progressBar.incrementProgressBy(10);
                     }
-                    Log.d("tag", String.valueOf(progressBar.getProgress()));
+//                    Log.d("tag", String.valueOf(progressBar.getProgress()));
                     while (progressBar.getProgress() != 100 ||
                             driverSelectSpinner.getSelectedItem().toString() == "[Select Driver]" ||
                             robotConfigSpinner.getSelectedItem().toString() == "[Robot Config]"){
@@ -110,6 +138,9 @@ public class GeneratingActivity extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         Intent back2Title = new Intent(getApplicationContext(), AMazeActivity.class);
+        Toast.makeText(getApplicationContext(), "Back button", Toast.LENGTH_SHORT).show();
+        Log.v("Back Button", "Back button");
         startActivity(back2Title);
+
     };
 }

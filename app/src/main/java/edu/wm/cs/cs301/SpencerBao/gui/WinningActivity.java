@@ -2,6 +2,8 @@ package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,5 +29,7 @@ public class WinningActivity extends AppCompatActivity {
     public void onBackPressed(){
         Intent back2Title = new Intent(getApplicationContext(), AMazeActivity.class);
         startActivity(back2Title);
+        Toast.makeText(getApplicationContext(), "Back button", Toast.LENGTH_SHORT).show();
+        Log.v("Back Button", "Back button");
     };
 }
