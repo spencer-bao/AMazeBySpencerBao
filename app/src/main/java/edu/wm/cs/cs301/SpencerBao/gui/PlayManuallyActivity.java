@@ -29,6 +29,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_manually);
 
+        View view = (View) findViewById(R.id.manualMazePanel);
+        MazePanel mazePanel = new MazePanel(getApplicationContext());
+
         Button upButton = (Button) findViewById(R.id.upButton);
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override

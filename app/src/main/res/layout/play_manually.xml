@@ -115,4 +115,15 @@
         app:layout_constraintStart_toStartOf="@+id/zoomInButton"
         app:layout_constraintTop_toBottomOf="@+id/zoomInButton" />
 
+    <edu.wm.cs.cs301.SpencerBao.gui.MazePanel
+        android:id="@+id/manualMazePanel"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
