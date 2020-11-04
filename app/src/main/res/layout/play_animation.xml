@@ -205,4 +205,13 @@
         app:layout_constraintEnd_toEndOf="@+id/sensorB"
         app:layout_constraintStart_toStartOf="@+id/sensorB" />
 
+    <edu.wm.cs.cs301.SpencerBao.gui.MazePanel
+        android:id="@+id/animatMazePanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

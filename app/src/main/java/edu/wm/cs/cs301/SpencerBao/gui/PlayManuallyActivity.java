@@ -1,6 +1,8 @@
 package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,8 +31,8 @@ public class PlayManuallyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_manually);
 
-        View view = (View) findViewById(R.id.manualMazePanel);
-        MazePanel mazePanel = new MazePanel(getApplicationContext());
+        MazePanel panel = new MazePanel(getApplicationContext());
+
 
         Button upButton = (Button) findViewById(R.id.upButton);
         upButton.setOnClickListener(new View.OnClickListener() {

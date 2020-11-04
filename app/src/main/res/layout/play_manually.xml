@@ -117,7 +117,7 @@
 
     <edu.wm.cs.cs301.SpencerBao.gui.MazePanel
         android:id="@+id/manualMazePanel"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
