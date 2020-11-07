@@ -78,6 +78,15 @@ public class MazePanel extends View {
         paint(canvas);
     }
 
+    public boolean isOperational() {
+        if (bitmap != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public void paint(Canvas canvas){
         canvas.drawBitmap(bitmap, 0,0, paint);
     }

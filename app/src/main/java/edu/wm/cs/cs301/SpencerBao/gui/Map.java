@@ -109,7 +109,7 @@ public class Map {
      * Draws the current map on top of the first person view.
      * Method assumes that we are in the playing state and that
      * the map mode is switched on.
-     * @param panel
+     * @param "panel"
      * @param x
      * @param y
      * @param angle
@@ -191,7 +191,7 @@ public class Map {
 
                 panel.setColor(seenWalls.hasWall(x,y, CardinalDirection.North) ? MazePanel.decodeRGB("#FFFFFF") : MazePanel.decodeRGB("#808080"));
                 if ((seenWalls.hasWall(x,y, CardinalDirection.North) || showMaze) && theCondition)
-                    panel.addLine(startX, startY, startX + mapScale, startY); // y coordinate same
+//                    panel.addLine(startX, startY, startX + mapScale, startY); // y coordinate same @TODO
 
                 // draw vertical line
                 theCondition = (y >= mazeHeight) ? false : ((x < mazeWidth) ?
@@ -199,8 +199,10 @@ public class Map {
                         maze.hasWall((x-1),y, CardinalDirection.East));
 
                 panel.setColor(seenWalls.hasWall(x,y, CardinalDirection.West) ? MazePanel.decodeRGB("#FFFFFF") : MazePanel.decodeRGB("#808080"));
-                if ((seenWalls.hasWall(x,y, CardinalDirection.West) || showMaze) && theCondition)
-                    panel.addLine(startX, startY, startX, startY - mapScale); // x coordinate same
+                if ((seenWalls.hasWall(x,y, CardinalDirection.West) || showMaze) && theCondition){
+//                    panel.addLine(startX, startY, startX, startY - mapScale); // x coordinate same @TODO
+                }
+//
             }
 
         if (showSolution) {
@@ -325,14 +327,14 @@ public class Map {
         // and its width and height to draw the circle
         // top left corner is (centerX-radius, centerY-radius)
         // width and height is simply the diameter
-        panel.addFilledOval(centerX-diameter/2, centerY-diameter/2, diameter, diameter);
+//        panel.addFilledOval(centerX-diameter/2, centerY-diameter/2, diameter, diameter); @TODO
         // draw a red arrow with the oval to show current direction
         drawArrow(viewDX, viewDY, centerX, centerY);
     }
 
     /**
      * Draws an arrow either in horizontal or vertical direction.
-     * @param gc to draw on
+     * @param "gc" to draw on
      * @param viewDX is the current viewing direction, x coordinate
      * @param viewDY is the current viewing direction, y coordinate
      * @param startX is the x coordinate of the starting point
@@ -345,7 +347,7 @@ public class Map {
         final int tipX = startX + mapToOffset(arrowLength, viewDX);
         final int tipY = startY - mapToOffset(arrowLength, viewDY);
         // draw main line, goes from starting (x,y) to end (tipX,tipY)
-        panel.addLine(startX, startY, tipX, tipY);
+//        panel.addLine(startX, startY, tipX, tipY);@TODO
         // calculate length and positions for 2 lines pointing towards (tipX,tipY)
         // find intermediate point (tmpX,tmpY) on main line
         final int length = mapScale/4;
@@ -361,8 +363,8 @@ public class Map {
         final int offsetX = mapToOffset(length, -viewDY);
         final int offsetY = mapToOffset(length, -viewDX);
         // draw two lines, starting at tip of arrow
-        panel.addLine(tipX, tipY, tmpX + offsetX, tmpY + offsetY);
-        panel.addLine(tipX, tipY, tmpX - offsetX, tmpY - offsetY);
+//        panel.addLine(tipX, tipY, tmpX + offsetX, tmpY + offsetY);@TODO
+//        panel.addLine(tipX, tipY, tmpX - offsetX, tmpY - offsetY);@TODO
     }
 
 
@@ -373,7 +375,7 @@ public class Map {
      * and showSolution are true.
      * Since the current position is fixed at the center of the screen,
      * all lines on the map are drawn with some offset.
-     * @param gc to draw lines on
+     * @param "gc" to draw lines on
      * @param offsetX is the offset for x coordinates
      * @param offsetY is the offset for y coordinates
      * @param px is the current position, an index x for a cell
@@ -422,7 +424,7 @@ public class Map {
             //int ny2 = view_height-1-(neighbor[1]*map_scale + offy) - map_scale/2;
             int nx2 = mapToCoordinateX(neighbor[0],offsetX) + mapScale/2;
             int ny2 = mapToCoordinateY(neighbor[1],offsetY) - mapScale/2;
-            panel.addLine(nx1, ny1, nx2, ny2);
+//            panel.addLine(nx1, ny1, nx2, ny2);@TODO
 
             // update loop variables for current position (sx,sy)
             // and distance d for next iteration

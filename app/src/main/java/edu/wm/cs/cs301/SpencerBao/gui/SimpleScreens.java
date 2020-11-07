@@ -1,8 +1,11 @@
 package edu.wm.cs.cs301.SpencerBao.gui;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+//import java.awt.Color;
+//import java.awt.Font;
+//import java.awt.Graphics;
+
+import android.graphics.Canvas;
+import android.graphics.Color;
 
 /**
  * Implements the screens that are displayed whenever the game is not in
@@ -29,9 +32,9 @@ import java.awt.Graphics;
  */
 public class SimpleScreens {
     // Color settings
-    final Color greenWM = Color.decode("#115740");
-    final Color goldWM = Color.decode("#916f41");
-    final Color blackWM = Color.decode("#222222");
+    final int greenWM = Color.parseColor("#115740");
+    final int goldWM = Color.parseColor("#916f41");
+    final int blackWM = Color.parseColor("#222222");
     final String errorMsg = "SimpleScreens:can't get graphics object to draw on, skipping redraw operation";
 
     /**
@@ -41,7 +44,7 @@ public class SimpleScreens {
      * that contains the maze, can be null
      */
     public void redrawTitle(MazePanel panel, String filename) {
-        Graphics g = panel.getBufferGraphics() ;
+//        Graphics g = panel.getBufferGraphics() ;
         if (null == g) {
             System.out.println(errorMsg) ;
         }
@@ -55,9 +58,10 @@ public class SimpleScreens {
      * @param filename is a string put on display for the file
      * that contains the maze, can be null
      */
-    private void redrawTitle(Graphics gc, String filename) {
+    private void redrawTitle(Canvas canvas, String filename) {
         // produce white background
-        drawBackground(gc);
+        drawBackground();
+
         // write the title
         updateFontAndColor(gc, largeBannerFont, goldWM);
         centerString(gc, "MAZE", 100);

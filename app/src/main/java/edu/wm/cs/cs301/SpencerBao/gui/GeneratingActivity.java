@@ -18,6 +18,8 @@ import com.example.amazebyspencerbao.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.wm.cs.cs301.SpencerBao.generation.MazeFactory;
+import edu.wm.cs.cs301.SpencerBao.generation.Order;
 /**
  * Responsibilities: Displays an intermediate page where the user can select the driver and robot
  * settings while a maze is generated with a background thread. The page informs the user on the
@@ -29,6 +31,10 @@ import java.util.List;
  * @Author Spencer Bao
  */
 public class GeneratingActivity extends AppCompatActivity {
+    StateGenerating stateGenerating = new StateGenerating();
+    MazeFactory factory = new MazeFactory() ;
+    DataHolder dataHolder = (DataHolder) getApplicationContext();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +117,8 @@ public class GeneratingActivity extends AppCompatActivity {
                     } else{
                         next = new Intent(getApplicationContext(), PlayAnimationActivity.class);
                     }
-                    next.putExtra("Driver", driverSelectSpinner.getSelectedItem().toString());
+//                    next.putExtra("Driver", driverSelectSpinner.getSelectedItem().toString());
+                    dataHolder.setDriverConfig(driverSelectSpinner.getSelectedItem().toString());
 
                     switch (robotConfigSpinner.getSelectedItem().toString()){
                         case "Premium":
@@ -127,6 +134,7 @@ public class GeneratingActivity extends AppCompatActivity {
                             next.putExtra("Robot Config", "0000");
                             break;
                     }
+                    dataHolder.setRobotConfig(robotConfigSpinner.getSelectedItem().toString());
                     startActivity(next);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

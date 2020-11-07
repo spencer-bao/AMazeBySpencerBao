@@ -3,6 +3,7 @@ package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,17 +39,20 @@ public class AMazeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.state_title);
+        final DataHolder dataHolder = (DataHolder) getApplicationContext();
 
         /**
          * Seekbar used to choose the skill level of the maze. Min of 0 and max of 9.
          */
         final SeekBar skillBar = (SeekBar) findViewById(R.id.skillBar);
+        final int[] chosenSkillLevel = {0};
         skillBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 TextView skillLevel = (TextView) findViewById(R.id.skillLevel);
                 skillLevel.setText("Skill Level: " + progress);
                 seekBar.setMax(9);
+                chosenSkillLevel[0] = progress;
             }
 
             @Override
@@ -60,6 +64,7 @@ public class AMazeActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Toast.makeText(getApplicationContext(), "Changed Skill Level",Toast.LENGTH_SHORT).show();
                 Log.v("Skill Bar Progress toast", "Changed Skill Level");
+                dataHolder.setSkillLevel(chosenSkillLevel[0]);
             }
         });
 
@@ -133,9 +138,17 @@ public class AMazeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getApplicationContext(), GeneratingActivity.class);
-                next.putExtra("Skill Level", skillBar.getProgress());
-                next.putExtra("Maze Algorithm", mazeSelectSpinner.getSelectedItem().toString());
-                next.putExtra("Rooms", roomSpinner.getSelectedItem().toString());
+//                next.putExtra("Skill Level", skillBar.getProgress());
+//                next.putExtra("Maze Algorithm", mazeSelectSpinner.getSelectedItem().toString());
+//                next.putExtra("Rooms", roomSpinner.getSelectedItem().toString());
+
+                dataHolder.setMazeAlgorithm(mazeSelectSpinner.getSelectedItem().toString());
+                if(roomSpinner.getSelectedItem().toString().equals("Rooms")){
+                    dataHolder.setRoomsOrNoRooms(true);
+                } else{
+                    dataHolder.setRoomsOrNoRooms(false);
+                }
+
                 Toast.makeText(getApplicationContext(), "Pressed Explore", Toast.LENGTH_SHORT).show();
                 Log.v("Explore toast", "Pressed Explore");
                 startActivity(next);
