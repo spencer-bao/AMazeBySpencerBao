@@ -71,7 +71,7 @@ public class MazeContainer implements Maze {
      * @param height is the height of the maze, must conform with Constants.SKILL_Y values
      * @param floorplan the floorplan to set, must not be null
      * @param mazedists the mazedists to set, must be not null
-     * @param rootnode the rootnode to set, must be not null
+     * @param "rootnode" the rootnode to set, must be not null
      * @param startingPositionX is on the horizontal axis, {@code 0 <= x < width}
      * @param startingPositionY is on the vertical axis, {@code 0 <= y < height}
      *

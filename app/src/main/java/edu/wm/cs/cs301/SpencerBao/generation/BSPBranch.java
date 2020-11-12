@@ -3,7 +3,7 @@ package edu.wm.cs.cs301.SpencerBao.generation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import gui.MazeFileWriter;
+import edu.wm.cs.cs301.SpencerBao.gui.MazeFileWriter;
 
 import edu.wm.cs.cs301.SpencerBao.generation.BSPNode;
 /**

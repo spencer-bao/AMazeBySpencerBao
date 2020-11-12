@@ -39,7 +39,6 @@ public class AMazeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.state_title);
-        final DataHolder dataHolder = (DataHolder) getApplicationContext();
 
         /**
          * Seekbar used to choose the skill level of the maze. Min of 0 and max of 9.
@@ -64,7 +63,7 @@ public class AMazeActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Toast.makeText(getApplicationContext(), "Changed Skill Level",Toast.LENGTH_SHORT).show();
                 Log.v("Skill Bar Progress toast", "Changed Skill Level");
-                dataHolder.setSkillLevel(chosenSkillLevel[0]);
+                DataHolder.setSkillLevel(chosenSkillLevel[0]);
             }
         });
 
@@ -142,11 +141,11 @@ public class AMazeActivity extends AppCompatActivity {
 //                next.putExtra("Maze Algorithm", mazeSelectSpinner.getSelectedItem().toString());
 //                next.putExtra("Rooms", roomSpinner.getSelectedItem().toString());
 
-                dataHolder.setMazeAlgorithm(mazeSelectSpinner.getSelectedItem().toString());
+                DataHolder.setMazeAlgorithm(mazeSelectSpinner.getSelectedItem().toString());
                 if(roomSpinner.getSelectedItem().toString().equals("Rooms")){
-                    dataHolder.setRoomsOrNoRooms(true);
+                    DataHolder.setRoomsOrNoRooms(true);
                 } else{
-                    dataHolder.setRoomsOrNoRooms(false);
+                    DataHolder.setRoomsOrNoRooms(false);
                 }
 
                 Toast.makeText(getApplicationContext(), "Pressed Explore", Toast.LENGTH_SHORT).show();

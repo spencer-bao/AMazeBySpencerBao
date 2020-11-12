@@ -1,6 +1,6 @@
 package edu.wm.cs.cs301.SpencerBao.generation;
 
-import generation.Order;
+import edu.wm.cs.cs301.SpencerBao.generation.Order;
 
 /**
  * Specifies functionality of a maze factory that produces

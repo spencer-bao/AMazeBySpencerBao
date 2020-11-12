@@ -2,50 +2,59 @@ package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.app.Application;
 
+import edu.wm.cs.cs301.SpencerBao.generation.Maze;
+
 public class DataHolder extends Application {
-    private int skillLevel;
-    private String mazeAlgorithm;
-    private Boolean roomsOrNoRooms;
-    private String driverConfig;
-    private String robotConfig;
+    private static int skillLevel;
+    private static String mazeAlgorithm;
+    private static Boolean roomsOrNoRooms;
+    private static String driverConfig;
+    private static String robotConfig;
+    private static Maze mazeConfig;
 
-    public void setSkillLevel(int skillLevel) {
-        this.skillLevel = skillLevel;
+    public static void setSkillLevel(int skillLevel) {
+        DataHolder.skillLevel = skillLevel;
     }
 
-    public void setMazeAlgorithm(String mazeAlgorithm){
-        this.mazeAlgorithm= mazeAlgorithm;
+    public static void setMazeAlgorithm(String mazeAlgorithm){
+        DataHolder.mazeAlgorithm= mazeAlgorithm;
     }
 
-    public void setRoomsOrNoRooms(Boolean rooms){
-        this.roomsOrNoRooms = rooms;
+    public static void setRoomsOrNoRooms(Boolean rooms){
+        DataHolder.roomsOrNoRooms = rooms;
     }
 
-    public void setDriverConfig(String driverConfig){
-        this.driverConfig = driverConfig;
+    public static void setDriverConfig(String driverConfig){
+        DataHolder.driverConfig = driverConfig;
     }
 
-    public void setRobotConfig(String robotConfig) {
-        this.robotConfig = robotConfig;
+    public static void setRobotConfig(String robotConfig) {
+        DataHolder.robotConfig = robotConfig;
     }
 
-    public int getSkillLevel() {
-        return skillLevel;
+    public static void setMazeConfig(Maze mazeConfig) {
+        DataHolder.mazeConfig = mazeConfig;
     }
 
-    public String getMazeAlgorithm() {
+    public static int getSkillLevel() { return skillLevel; }
+
+    public static String getMazeAlgorithm() {
         return mazeAlgorithm;
     }
 
-    public Boolean getRoomsOrNoRooms() {
+    public static Boolean getRoomsOrNoRooms() {
         return roomsOrNoRooms;
     }
 
-    public String getDriverConfig() {
+    public static String getDriverConfig() {
         return driverConfig;
     }
 
-    public String getRobotConfig() {
+    public static String getRobotConfig() {
         return robotConfig;
+    }
+
+    public static Maze getMazeConfig() {
+        return mazeConfig;
     }
 }

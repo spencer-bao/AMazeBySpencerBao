@@ -31,7 +31,7 @@ import edu.wm.cs.cs301.SpencerBao.gui.Constants;
  */
 public class MazePanel extends View {
     private Rect rect;
-    private Paint paint;  //Paint handles how to draw
+    private Paint paint = new Paint();  //Paint handles how to draw
     private Canvas canvas;// Canvas handles what to draw, canvas class defines methods for drawing graphics
     private Bitmap bitmap;
     private int width = Constants.VIEW_WIDTH;
@@ -39,7 +39,6 @@ public class MazePanel extends View {
 
     public MazePanel(Context context) {
         super(context);
-
     }
 
     public MazePanel(Context context, AttributeSet attrs){
@@ -66,7 +65,6 @@ public class MazePanel extends View {
 
     @Override
     public void onDraw(Canvas canvas) { //different from the private canvas
-
         canvas.drawBitmap(bitmap, 0, 0, paint);
     }
 

@@ -1,8 +1,8 @@
 package edu.wm.cs.cs301.SpencerBao.generation;
 
-import gui.MazeFileWriter;
-import generation.BSPNode;
-import generation.Wall;
+import edu.wm.cs.cs301.SpencerBao.gui.MazeFileWriter;
+import edu.wm.cs.cs301.SpencerBao.generation.BSPNode;
+import edu.wm.cs.cs301.SpencerBao.generation.Wall;
 
 import java.util.ArrayList;
 

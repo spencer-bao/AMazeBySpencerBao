@@ -135,7 +135,7 @@ public class PlayAnimationActivity extends AppCompatActivity {
          * Unreliable).
          */
         Intent intent = getIntent();
-        String robotConfig = intent.getStringExtra("Robot Config");
+        String robotConfig = DataHolder.getRobotConfig();
         ImageView image;
         switch (robotConfig){
             case "1111":

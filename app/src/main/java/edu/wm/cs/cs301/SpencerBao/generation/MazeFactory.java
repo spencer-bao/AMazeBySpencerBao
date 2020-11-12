@@ -30,6 +30,7 @@ public class MazeFactory implements Factory {
     @Override
     public boolean order(Order order) {
         // check if factory is busy
+
         if (null != buildThread && buildThread.isAlive()) {
             // order is currently processed, don't queue, just refuse
             System.out.println("MazeFactory.order: refusing to take order, too busy with current order");

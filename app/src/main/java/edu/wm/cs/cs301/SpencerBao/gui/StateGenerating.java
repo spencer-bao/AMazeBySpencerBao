@@ -218,8 +218,8 @@ public class StateGenerating extends DefaultState implements Order {
      */
     private void draw() {
         // draw the content on the panel
-        view.redrawGenerating(panel, getPercentDone());
-        // update the screen with the buffer graphics
+//        view.redrawGenerating(panel, getPercentDone());
+        // update the screen with the buffer graphics #TODO
         panel.update() ;
     }
 }
