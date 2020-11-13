@@ -25,14 +25,16 @@ import com.example.amazebyspencerbao.R;
  * @Author Spencer Bao
  */
 public class PlayManuallyActivity extends AppCompatActivity {
+    Constants.UserInput userInput = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_manually);
-
-        MazePanel panel = new MazePanel(getApplicationContext());
-
+        final MazePanel panel = (MazePanel) findViewById(R.id.manualMazePanel);
+        final StatePlaying statePlaying = new StatePlaying();
+        statePlaying.setMazeConfiguration(DataHolder.getMazeConfig());
+        statePlaying.start(panel);
 
         Button upButton = (Button) findViewById(R.id.upButton);
         upButton.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +42,10 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Up button", Toast.LENGTH_SHORT).show();
                 Log.v("Up Button", "Up button");
+                userInput = Constants.UserInput.Up;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
+
             }
         });
 
@@ -49,6 +55,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Down button", Toast.LENGTH_SHORT).show();
                 Log.v("Down Button", "Down button");
+                userInput = Constants.UserInput.Down;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
 
@@ -58,6 +67,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Right button", Toast.LENGTH_SHORT).show();
                 Log.v("Right Button", "Right button");
+                userInput = Constants.UserInput.Right;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
 
@@ -67,6 +79,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Left button", Toast.LENGTH_SHORT).show();
                 Log.v("Left Button", "Left button");
+                userInput = Constants.UserInput.Left;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
 
@@ -81,23 +96,29 @@ public class PlayManuallyActivity extends AppCompatActivity {
             }
         });
 
-//        Button zoomInButton = (Button) findViewById(R.id.animatZoomInButton);
-//        zoomInButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(), "Zoom in", Toast.LENGTH_SHORT).show();
-//                Log.v("Animat Zoom In Button", "Zoom In button");
-//            }
-//        });
-//
-//        Button zoomOutButton = (Button) findViewById(R.id.animatZoomOutButton);
-//        zoomOutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(), "Zoom out", Toast.LENGTH_SHORT).show();
-//                Log.v("Animat Zoom Out Button", "Zoom Out button");
-//            }
-//        });
+        Button zoomInButton = (Button) findViewById(R.id.zoomInButton);
+        zoomInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Zoom in", Toast.LENGTH_SHORT).show();
+                Log.v("Zoom In Button", "Zoom In button");
+                userInput = Constants.UserInput.ZoomIn;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
+            }
+        });
+
+        Button zoomOutButton = (Button) findViewById(R.id.zoomOutButton);
+        zoomOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Zoom out", Toast.LENGTH_SHORT).show();
+                Log.v("Zoom Out Button", "Zoom Out button");
+                userInput = Constants.UserInput.ZoomOut;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
+            }
+        });
 
         Switch mapSwitch = (Switch) findViewById(R.id.mapSwitch);
         mapSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -105,6 +126,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Toast.makeText(getApplicationContext(), "Map Switch: " + isChecked, Toast.LENGTH_SHORT).show();
                 Log.v("Map Switch", "Map Switch");
+                userInput = Constants.UserInput.ToggleFullMap;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
 
@@ -114,6 +138,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Toast.makeText(getApplicationContext(), "Solution Switch: " + isChecked, Toast.LENGTH_SHORT).show();
                 Log.v("Solution Switch", "Solution Switch");
+                userInput = Constants.UserInput.ToggleSolution;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
 
@@ -123,6 +150,9 @@ public class PlayManuallyActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Toast.makeText(getApplicationContext(), "Visible Switch: " + isChecked, Toast.LENGTH_SHORT).show();
                 Log.v("Visible Switch", "Visible Switch");
+                userInput = Constants.UserInput.ToggleLocalMap;
+                statePlaying.keyDown(userInput, 0);
+                panel.invalidate();
             }
         });
     }
