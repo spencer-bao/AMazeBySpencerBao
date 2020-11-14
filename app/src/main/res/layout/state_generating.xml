@@ -37,4 +37,15 @@
         app:layout_constraintEnd_toStartOf="@+id/robotConfig"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/brainBlast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/brainblast"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/driverSelect"
+        app:srcCompat="@drawable/brain" />
 </androidx.constraintlayout.widget.ConstraintLayout>

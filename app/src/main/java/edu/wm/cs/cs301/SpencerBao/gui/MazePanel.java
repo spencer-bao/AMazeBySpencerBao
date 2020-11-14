@@ -2,11 +2,14 @@ package edu.wm.cs.cs301.SpencerBao.gui;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.graphics.fonts.Font;
 import android.media.Image;
 import android.provider.SyncStateContract;
@@ -16,6 +19,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
+
+import com.example.amazebyspencerbao.R;
 
 import java.lang.invoke.ConstantCallSite;
 
@@ -32,10 +37,14 @@ import edu.wm.cs.cs301.SpencerBao.gui.Constants;
 public class MazePanel extends View {
     private Rect rect;
     private Paint paint = new Paint();  //Paint handles how to draw
+    private Paint regularPaint = new Paint();
+    private Paint texturePaint = new Paint();
     private Canvas canvas = new Canvas();// Canvas handles what to draw, canvas class defines methods for drawing graphics
     private Bitmap bitmap;
     private int width = Constants.VIEW_WIDTH;
     private int height = Constants.VIEW_HEIGHT;
+
+
 
     public MazePanel(Context context) {
         super(context);
@@ -59,10 +68,11 @@ public class MazePanel extends View {
 
     private void init(@Nullable AttributeSet attrs) {
         bitmap = bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-
         canvas.setBitmap(bitmap);
-//        myTestImage(canvas);
         addBackground(0);
+        Bitmap brainTexture = BitmapFactory.decodeResource(getResources(), R.drawable.brain_texture);
+        BitmapShader shader = new BitmapShader(brainTexture, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
+        texturePaint.setShader(shader);
         update(canvas);
     }
 
@@ -251,5 +261,14 @@ public class MazePanel extends View {
         int[] yPoints = {600, 1000, 2000};
         addPolygon(xPoints, yPoints, 3);
         update(c);
+    }
+
+    public void useTexture() {
+        regularPaint = paint;
+        paint = texturePaint;
+    }
+
+    public void useRegularPaint(){
+        paint = regularPaint;
     }
 }

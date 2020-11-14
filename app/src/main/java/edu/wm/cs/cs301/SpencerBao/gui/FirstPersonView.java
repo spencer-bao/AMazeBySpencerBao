@@ -3,6 +3,8 @@
  */
 package edu.wm.cs.cs301.SpencerBao.gui;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 
 import java.util.ArrayList;
@@ -480,8 +482,10 @@ public class FirstPersonView {
 
         // moved code for drawing bits and pieces into yet another method to
         // gain more clarity on what information is actually needed
-        panel.setColor(wall.getColor());
+//        panel.setColor(wall.getColor());
+        panel.useTexture();
         boolean drawn = drawPolygons(x1, x2, y11, y12, y21, y22);
+        panel.useRegularPaint();
 
         if (drawn && !wall.isSeen()) {
             wall.setSeen(true); // updates the wall

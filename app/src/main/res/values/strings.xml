@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AMazeBySpencerBao</string>
+    <string name="app_name">Brain Blast! By Spencer Bao</string>
     <string name="wizard">Wizard</string>
     <string name="manual_driver">Manual Driver</string>
     <string name="wall_follower">Wall Follower</string>
@@ -40,4 +40,7 @@
     <string name="l">L</string>
     <string name="r">R</string>
     <string name="b">B</string>
+    <string name="jimmy">jimmy</string>
+    <string name="carl">carl</string>
+    <string name="brainblast">brainBlast</string>
 </resources>

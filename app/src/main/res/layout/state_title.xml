@@ -75,5 +75,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skillBar" />
+
+    <ImageView
+        android:id="@+id/jimmyTitle"
+        android:layout_width="250dp"
+        android:layout_height="248dp"
+        android:contentDescription="@string/jimmy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mazeSelectSpinner"
+        app:srcCompat="@drawable/jimmy_neutron" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

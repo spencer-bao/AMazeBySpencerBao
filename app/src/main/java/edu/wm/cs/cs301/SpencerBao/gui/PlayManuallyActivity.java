@@ -44,6 +44,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
                 Log.v("Up Button", "Up button");
                 userInput = Constants.UserInput.Up;
                 statePlaying.keyDown(userInput, 0);
+//                panel.addBackground(statePlaying.getPercentageForDistanceToExit());
                 panel.invalidate();
                 if(statePlaying.isOutside(statePlaying.px, statePlaying.py)){
                     Intent next = new Intent(getApplicationContext(), WinningActivity.class);
