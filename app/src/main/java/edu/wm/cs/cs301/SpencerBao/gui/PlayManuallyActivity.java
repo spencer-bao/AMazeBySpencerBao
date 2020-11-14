@@ -45,6 +45,11 @@ public class PlayManuallyActivity extends AppCompatActivity {
                 userInput = Constants.UserInput.Up;
                 statePlaying.keyDown(userInput, 0);
                 panel.invalidate();
+                if(statePlaying.isOutside(statePlaying.px, statePlaying.py)){
+                    Intent next = new Intent(getApplicationContext(), WinningActivity.class);
+                    Log.v("From ManualActivity", "To Winning Screen");
+                    startActivity(next);
+                }
 
             }
         });
@@ -85,16 +90,16 @@ public class PlayManuallyActivity extends AppCompatActivity {
             }
         });
 
-        Button shortcutButton = (Button) findViewById(R.id.shortcutButton);
-        shortcutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent next = new Intent(getApplicationContext(), WinningActivity.class);
-                Toast.makeText(getApplicationContext(), "Shortcut button", Toast.LENGTH_SHORT).show();
-                Log.v("Shortcut Button", "Shortcut button");
-                startActivity(next);
-            }
-        });
+//        Button shortcutButton = (Button) findViewById(R.id.shortcutButton);
+//        shortcutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent next = new Intent(getApplicationContext(), WinningActivity.class);
+//                Toast.makeText(getApplicationContext(), "Shortcut button", Toast.LENGTH_SHORT).show();
+//                Log.v("Shortcut Button", "Shortcut button");
+//                startActivity(next);
+//            }
+//        });
 
         Button zoomInButton = (Button) findViewById(R.id.zoomInButton);
         zoomInButton.setOnClickListener(new View.OnClickListener() {

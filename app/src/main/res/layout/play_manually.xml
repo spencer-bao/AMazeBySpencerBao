@@ -57,54 +57,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="350dp" />
+        app:layout_constraintGuide_begin="300dp" />
 
     <Switch
         android:id="@+id/mapSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:text="@string/show_map"
+        app:layout_constraintBottom_toBottomOf="@+id/visibleSwitch"
+        app:layout_constraintEnd_toEndOf="@+id/leftButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/solutionSwitch" />
+        app:layout_constraintTop_toTopOf="@+id/visibleSwitch" />
 
     <Switch
         android:id="@+id/solutionSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/show_solution"
+        app:layout_constraintBottom_toBottomOf="@+id/visibleSwitch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toEndOf="@+id/mapSwitch"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/rightButton"
+        app:layout_constraintTop_toTopOf="@+id/visibleSwitch" />
 
     <Switch
         android:id="@+id/visibleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/visible_walls"
-        app:layout_constraintEnd_toEndOf="@+id/mapSwitch"
-        app:layout_constraintTop_toBottomOf="@+id/mapSwitch" />
-
-    <Button
-        android:id="@+id/shortcutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/shortcut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/solutionSwitch"
-        app:layout_constraintTop_toBottomOf="@+id/solutionSwitch" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/upButton"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/upButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.047" />
 
     <Button
         android:id="@+id/zoomInButton"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:text="@string/zoom_in"
+        app:layout_constraintBottom_toTopOf="@+id/zoomOutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/solutionSwitch" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/manualMazePanel"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/zoomOutButton"
@@ -122,7 +120,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visibleSwitch" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 

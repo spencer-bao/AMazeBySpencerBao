@@ -185,22 +185,22 @@ public class Map {
                 int startY = mapToCoordinateY(y, offsetY);
 
                 // draw horizontal line
-                boolean theCondition = (x >= mazeWidth) ? false : ((y < mazeHeight) ?
-                        maze.hasWall(x,y, CardinalDirection.North) :
-                        maze.hasWall(x,y-1, CardinalDirection.South));
+                boolean theCondition = (x < mazeWidth) && ((y < mazeHeight) ?
+                        maze.hasWall(x, y, CardinalDirection.North) :
+                        maze.hasWall(x, y - 1, CardinalDirection.South));
 
                 panel.setColor(seenWalls.hasWall(x,y, CardinalDirection.North) ? MazePanel.decodeRGB("#FFFFFF") : MazePanel.decodeRGB("#808080"));
                 if ((seenWalls.hasWall(x,y, CardinalDirection.North) || showMaze) && theCondition)
-//                    panel.addLine(startX, startY, startX + mapScale, startY); // y coordinate same @TODO
+                    panel.addLine(startX, startY, startX + mapScale, startY); // y coordinate same
 
                 // draw vertical line
-                theCondition = (y >= mazeHeight) ? false : ((x < mazeWidth) ?
-                        maze.hasWall(x,y, CardinalDirection.West) :
-                        maze.hasWall((x-1),y, CardinalDirection.East));
+                theCondition = (y < mazeHeight) && ((x < mazeWidth) ?
+                        maze.hasWall(x, y, CardinalDirection.West) :
+                        maze.hasWall((x - 1), y, CardinalDirection.East));
 
                 panel.setColor(seenWalls.hasWall(x,y, CardinalDirection.West) ? MazePanel.decodeRGB("#FFFFFF") : MazePanel.decodeRGB("#808080"));
                 if ((seenWalls.hasWall(x,y, CardinalDirection.West) || showMaze) && theCondition){
-//                    panel.addLine(startX, startY, startX, startY - mapScale); // x coordinate same @TODO
+                    panel.addLine(startX, startY, startX, startY - mapScale); // x coordinate same
                 }
 //
             }
@@ -327,7 +327,7 @@ public class Map {
         // and its width and height to draw the circle
         // top left corner is (centerX-radius, centerY-radius)
         // width and height is simply the diameter
-//        panel.addFilledOval(centerX-diameter/2, centerY-diameter/2, diameter, diameter); @TODO
+        panel.addFilledOval(centerX-diameter/2, centerY-diameter/2, diameter, diameter);
         // draw a red arrow with the oval to show current direction
         drawArrow(viewDX, viewDY, centerX, centerY);
     }
@@ -347,7 +347,7 @@ public class Map {
         final int tipX = startX + mapToOffset(arrowLength, viewDX);
         final int tipY = startY - mapToOffset(arrowLength, viewDY);
         // draw main line, goes from starting (x,y) to end (tipX,tipY)
-//        panel.addLine(startX, startY, tipX, tipY);@TODO
+        panel.addLine(startX, startY, tipX, tipY);
         // calculate length and positions for 2 lines pointing towards (tipX,tipY)
         // find intermediate point (tmpX,tmpY) on main line
         final int length = mapScale/4;
@@ -363,8 +363,8 @@ public class Map {
         final int offsetX = mapToOffset(length, -viewDY);
         final int offsetY = mapToOffset(length, -viewDX);
         // draw two lines, starting at tip of arrow
-//        panel.addLine(tipX, tipY, tmpX + offsetX, tmpY + offsetY);@TODO
-//        panel.addLine(tipX, tipY, tmpX - offsetX, tmpY - offsetY);@TODO
+        panel.addLine(tipX, tipY, tmpX + offsetX, tmpY + offsetY);
+        panel.addLine(tipX, tipY, tmpX - offsetX, tmpY - offsetY);
     }
 
 
@@ -424,7 +424,7 @@ public class Map {
             //int ny2 = view_height-1-(neighbor[1]*map_scale + offy) - map_scale/2;
             int nx2 = mapToCoordinateX(neighbor[0],offsetX) + mapScale/2;
             int ny2 = mapToCoordinateY(neighbor[1],offsetY) - mapScale/2;
-//            panel.addLine(nx1, ny1, nx2, ny2);@TODO
+            panel.addLine(nx1, ny1, nx2, ny2);
 
             // update loop variables for current position (sx,sy)
             // and distance d for next iteration

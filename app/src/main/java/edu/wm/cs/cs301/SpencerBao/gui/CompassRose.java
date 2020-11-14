@@ -126,7 +126,7 @@ public class CompassRose {
         final int x = centerX - size;
         final int y = centerY - size;
         final int w = 2 * size;// - 2 * CIRCLE_BORDER;
-//        panel.addFilledOval(x, y, w, w); @TODO
+        panel.addFilledOval(x, y, w, w);
     }
 
 
@@ -136,10 +136,10 @@ public class CompassRose {
         x[2] = centerX - width;
         y[2] = centerY + width;
 //        panel.fillPolygon(x, y, 3);
-//        panel.addFilledPolygon(x, y, 3);@TODO
+        panel.addFilledPolygon(x, y, 3);
         y[2] = centerY - width;
 //        g2.drawPolygon(x, y, 3);
-//        panel.addPolygon(x, y, 3);@TODO
+        panel.addPolygon(x, y, 3);
     }
     private void drawMainEast(int length, int width, int[] x, int[] y) {
         // observation: the 2 triangles to the right are drawn the same
@@ -152,9 +152,9 @@ public class CompassRose {
         y[1] = centerY + length;
         x[2] = centerX + width;
         y[2] = centerY + width;
-//        panel.addFilledPolygon(x, y, 3); @TODO
+        panel.addFilledPolygon(x, y, 3);
         x[2] = centerX - width;
-//        panel.addPolygon(x, y, 3); @TODO
+        panel.addPolygon(x, y, 3);
     }
     private void drawMainNorth(int length, int width, int[] x, int[] y) {
         // observation: the 2 triangles to the top are drawn the same
@@ -168,14 +168,14 @@ public class CompassRose {
         final int y = centerY - width / 2 + CIRCLE_BORDER;
         final int w = width - 2 * CIRCLE_BORDER;
         panel.setColor(CIRCLE_SHADE);
-//        panel.addArc(x, y, w, w, 45, 180);@TODO
+        panel.addArc(x, y, w, w, 45, 180);
         panel.setColor(CIRCLE_HIGHLIGHT);
-//        panel.addArc(x, y, w, w, 180 + 45, 180);@TODO
+        panel.addArc(x, y, w, w, 180 + 45, 180);
     }
 
 
     private void drawDirectionMarker(int width) {
-//        if (!Double.isNaN(markerRadius) && panel.decodeFont(markerFont)!= null) {@TODO
+        if (!Double.isNaN(markerRadius)) {
             int pos = (int) (width * markerRadius / 2);
 
             panel.setColor(MARKER_COLOR);
@@ -194,26 +194,26 @@ public class CompassRose {
                 panel.setColor(MARKER_COLOR);
             else
                 panel.setColor(goldWM);
-            drawMarker(centerX, centerY - pos, "N");
+                panel.addMarker(centerX, centerY - pos, "N");
             if (CardinalDirection.East == currentDir)
                 panel.setColor(MARKER_COLOR);
             else
                 panel.setColor(goldWM);
-            drawMarker(centerX + pos, centerY, "E");
+                panel.addMarker(centerX + pos, centerY, "E");
             // WARNING: north south confusion
             // currendDir North is going downwards on the map
             if (CardinalDirection.North == currentDir)
                 panel.setColor(MARKER_COLOR);
             else
                 panel.setColor(goldWM);
-            drawMarker(centerX, centerY + pos, "S");
+                panel.addMarker(centerX, centerY + pos, "S");
             if (CardinalDirection.West == currentDir)
                 panel.setColor(MARKER_COLOR);
             else
                 panel.setColor(goldWM);
-            drawMarker(centerX - pos, centerY, "W");
+                panel.addMarker(centerX - pos, centerY, "W");
         }
-//    }
+    }
 
     private void drawMarker(float x, float y, String str) {
 //        GlyphVector gv = markerFont.createGlyphVector(g2.getFontRenderContext(), str);
@@ -224,7 +224,7 @@ public class CompassRose {
 //
 //        g2.drawGlyphVector(gv, x, y);
 
-//        panel.addMarker(x, y, str);@TODO
+        panel.addMarker(x, y, str);
 
 
     }

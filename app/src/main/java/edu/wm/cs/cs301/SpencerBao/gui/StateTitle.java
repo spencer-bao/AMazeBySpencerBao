@@ -92,7 +92,7 @@ public class StateTitle extends DefaultState {
         view = new SimpleScreens();
         // if given a filename, show a message and move to the loading screen
         // otherwise, show message that we wait for the skill level for input
-//        view.redrawTitle(panel,filename); #TODO
+        view.redrawTitle(panel,filename);
         panel.update(); // as drawing is complete, make screen update happen
 
         if (filename != null) {

@@ -386,7 +386,7 @@ public class StatePlaying extends DefaultState {
      * @param y coordinate of position
      * @return true if position is outside, false otherwise
      */
-    private boolean isOutside(int x, int y) {
+    public boolean isOutside(int x, int y) {
         return !mazeConfig.isValidPosition(x, y) ;
     }
     /**
